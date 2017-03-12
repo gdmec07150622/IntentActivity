@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity  implements View.OnClickListener{
 
@@ -19,6 +20,10 @@ public class SecondActivity extends AppCompatActivity  implements View.OnClickLi
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
         button3.setOnClickListener(this);
+        Intent intent =getIntent();
+        String data=intent.getStringExtra("data");
+        TextView textView2 =(TextView)findViewById(R.id.textView2);
+        textView2.setText(data);
 
     }
 
@@ -38,12 +43,13 @@ public class SecondActivity extends AppCompatActivity  implements View.OnClickLi
                 Intent intent2=new Intent();
                 intent2.putExtra("data_return","这里是第二页发送过来的数据");
                 setResult(RESULT_OK,intent2);//此函数专门用于向上一个活动返回数据
-                finish();
+                //finish();
 
         }
     }
 
     //通过返回键向上一页传递数据
+    /*
     @Override
     public void onBackPressed() {
         Intent intent3=new Intent();
@@ -51,4 +57,5 @@ public class SecondActivity extends AppCompatActivity  implements View.OnClickLi
         setResult(RESULT_OK,intent3);//此函数专门用于向上一个活动返回数据
         finish();
     }
+    */
 }

@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button button1=(Button)findViewById(R.id.button1);
         Button button2=(Button)findViewById(R.id.button2);
+        Button button3=(Button)findViewById(R.id.button3);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +39,17 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent =new Intent("com.me.android.intentactivity.ACTION_START");
                 //startActivity(intent);
                 startActivityForResult(intent,1);
+
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent =new Intent(MainActivity.this,SecondActivity.class);
+                intent.putExtra("data","这是首页发来的数据");
+                startActivity(intent);
 
             }
         });
